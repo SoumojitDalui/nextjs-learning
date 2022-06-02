@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,7 +15,8 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6"
+    "eslint": "^8.16.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-plugin-react": "^7.30.0"
   }
 }
