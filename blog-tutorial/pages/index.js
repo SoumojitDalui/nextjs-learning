@@ -24,6 +24,12 @@ export default function Home() {
           <div className="blogItem">
             <h1>How to learn JS in 2022?</h1>
           </div>
+          <div className="blogItem">
+            <h1>How to learn JS in 2022?</h1>
+          </div>
+          <div className="blogItem">
+            <h1>How to learn JS in 2022?</h1>
+          </div>
         </div>
       </main>
 
