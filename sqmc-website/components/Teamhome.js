@@ -4,48 +4,60 @@ import { motion } from "framer-motion"
 const Teamhome = () => {
     const parent = {
         visible: {
-            opacity: 1,
             scale: 1,
-            transition: {
-                duration: 0.9,
-                when: "beforeChildren"
-            }
+            opacity: 1
         },
         hidden: {
-            opacity: 0,
             scale: 0.9,
-            when: "afterChildren"
+            opacity: 0
         }
     }
 
     const child_title = {
         visible: {
-            opacity: 1,
             scale: 1,
+            opacity: 1,
             transition: {
-                duration: 0.9,
                 when: "beforeChildren",
-                staggerChildren: 0.8
+                staggerChildren: 0.2
             }
         },
         hidden: {
-            opacity: 0,
             scale: 0.9,
+            opacity: 0,
             when: "afterChildren"
         }
     }
 
     const child_card = {
         visible: {
+            scale: 1,
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: {
                 duration: 0.9
             }
         },
         hidden: {
+            scale: 0.9,
             opacity: 0,
-            x: -50
+            y: -50
+        }
+    }
+
+    const down = {
+        visible: {
+            y: [0, 5, 0],
+            opacity: 1,
+            transition: {
+                delay: 1.8,
+                type: "spring",
+                y: [0, 0, 0]
+            }
+        },
+        hidden: {
+            y: 0,
+            opacity: 0
         }
     }
 
@@ -54,7 +66,7 @@ const Teamhome = () => {
             opacity: 1,
             x: 0,
             transition: {
-                delay: 4.3,
+                delay: 1,
                 duration: 0.9
             }
         },
@@ -64,20 +76,9 @@ const Teamhome = () => {
         }
     }
 
-    const down = {
-        visible: {
-            y: [0, -5, 0],
-            transition: {
-                delay: 7,
-                type: "spring",
-                repeat: Infinity
-            }
-        }
-    }
-
     return (
         <section className="text-gray-600 body-font" id="third-section">
-            <motion.div className="container px-5 pt-32 mx-auto" initial="hidden" whileInView="visible" variants={parent}>
+            <motion.div className="container px-5 pt-32 mx-auto" initial="hidden" whileInView="visible" variants={parent} viewport={{ once: true }}>
                 <motion.div className="flex flex-col text-center w-full mb-20" variants={child_title}>
                     <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">OUR TEAM</h1>
                     {/* <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p> */}
@@ -195,11 +196,11 @@ const Teamhome = () => {
                         </div>
                     </motion.div>
                 </motion.div>
-                <motion.div className="flex justify-center mt-16 py-2 px-8" variants={child_button}>
-                    <button className="bg-indigo-600 inline-flex py-3 px-5 rounded-lg items-center hover:bg-indigo-700 focus:outline-none text-white">More Teammembers</button>
+                <motion.div className="flex justify-center mt-16 py-2 px-8" variants={child_title}>
+                    <motion.button className="bg-indigo-600 inline-flex py-3 px-5 rounded-lg items-center hover:bg-indigo-700 focus:outline-none text-white" variants={child_button} initial="hidden" animate="visible">More Teammembers</motion.button>
                 </motion.div>
                 <motion.div className="flex justify-center mt-8 py-2 px-8" variants={child_title}>
-                    <Link href="#fourth-section"><motion.img src="/angle-down-solid.svg" width="15" height="15" className='cursor-pointer' variants={down} animate="visible" /></Link>
+                    <Link href="#fourth-section"><motion.img src="/angle-down-solid.svg" width="15" height="15" className='cursor-pointer' variants={down} initial="hidden" animate="visible" /></Link>
                 </motion.div>
             </motion.div>
         </section>

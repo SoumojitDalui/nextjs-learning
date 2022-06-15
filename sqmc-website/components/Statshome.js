@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const Statshome = () => {
     const parent = {
@@ -124,9 +125,9 @@ const Statshome = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="flex justify-center mt-16 py-2 px-8">
-                <Link href="/"><img src="/angle-down-solid.svg" width="15" height="15" /></Link>
-            </div> */}
+                <div className="flex justify-center mt-16 py-2 px-8">
+                    <a href="#fifth-section"><img src="/angle-down-solid.svg" width="15" height="15" /></a>
+                </div>
             </div>
         </section>
     )

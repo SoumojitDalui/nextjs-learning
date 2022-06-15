@@ -4,16 +4,11 @@ const Whyhome = () => {
     const parent = {
         visible: {
             scale: 1,
-            opacity: 1,
-            transition: {
-                duration: 0.9,
-                when: "beforeChildren",
-            }
+            opacity: 1
         },
         hidden: {
             scale: 0.9,
-            opacity: 0,
-            when: "afterChildren"
+            opacity: 0
         }
     }
 
@@ -22,9 +17,8 @@ const Whyhome = () => {
             scale: 1,
             opacity: 1,
             transition: {
-                duration: 0.3,
                 when: "beforeChildren",
-                staggerChildren: 0.5
+                staggerChildren: 0.2
             }
         },
         hidden: {
@@ -52,18 +46,23 @@ const Whyhome = () => {
 
     const down = {
         visible: {
-            y: [0, -5, 0],
+            y: [0, 5, 0],
+            opacity: 1,
             transition: {
-                delay: 7,
+                delay: 2,
                 type: "spring",
-                repeat: Infinity
+                y: [0, 0, 0]
             }
+        },
+        hidden: {
+            y: 0,
+            opacity: 0
         }
     }
 
     return (
         <section className="text-gray-600 body-font" id="second-section">
-            <motion.div className="container px-5 pt-32 mx-auto" initial="hidden" whileInView="visible" variants={parent}>
+            <motion.div className="container px-5 pt-32 mx-auto" initial="hidden" whileInView="visible" variants={parent} viewport={{ once: true }}>
                 <motion.div className="text-center mb-14" variants={child_title}>
                     <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-10">WHY SQMC?</h1>
                     {/* <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">Below are the services provided by us:</p> */}
@@ -158,7 +157,7 @@ const Whyhome = () => {
                     </motion.div>
                 </motion.div>
                 <motion.div className="flex justify-center mt-16 py-2 px-8" variants={child_title}>
-                    <a href="#third-section"><motion.img src="/angle-down-solid.svg" width="15" height="15" className='cursor-pointer' variants={down} animate="visible" /></a>
+                    <a href="#third-section"><motion.img src="/angle-down-solid.svg" width="15" height="15" className='cursor-pointer' variants={down} initial="hidden" animate="visible" /></a>
                 </motion.div>
             </motion.div>
         </section>

@@ -7,6 +7,7 @@ import Herohome from '../components/Herohome'
 import Whyhome from '../components/Whyhome'
 import Teamhome from '../components/Teamhome'
 import Statshome from '../components/Statshome'
+import Contacthomeform from '../components/Contacthomeform'
 
 export default function Home() {
   const parent = {
@@ -65,6 +66,9 @@ export default function Home() {
 
         {/* Stats Element */}
         <Statshome />
+
+        { /* Contact Form Element */ }
+        <Contacthomeform />
       </main>
     </div>
   )
